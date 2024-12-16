@@ -4,10 +4,10 @@
  */
 package poo.trabajo;
 
-/**
- *
- * @author victor
- */
+/* @author victor oliveira, ruben ruiz and ariel lozano */
+
 public class Main {
-    
+    public static void main(String[] args) {
+        System.out.println("¡Hola, mundo!");
+    }
 }
