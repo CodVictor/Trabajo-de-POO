@@ -9,5 +9,7 @@ package products;
  * @author Usuario
  */
 public class IndividualProduct {
-    
+    public IndividualProduct (String name, String descr, String fileName, int precio){
+        
+    }
 }
