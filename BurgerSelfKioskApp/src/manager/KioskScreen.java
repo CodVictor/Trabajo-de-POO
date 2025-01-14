@@ -9,5 +9,5 @@ package manager;
  * @author Usuario
  */
 public interface KioskScreen {
-    
+    public KioskScreen show (Context context);
 }

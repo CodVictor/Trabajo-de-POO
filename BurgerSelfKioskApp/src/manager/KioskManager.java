@@ -4,21 +4,9 @@
  */
 package manager;
 
-import context.Context;
-import screens.KioskScreen;
-import screens.WellcomeScreen;
-
 public class KioskManager {
-    private Context context;
-    private KioskScreen currentScreen;
 
     public void start() {
-        context = new Context();
-        context.initialize();
-
-        currentScreen = new WellcomeScreen();
-        while (currentScreen != null) {
-            currentScreen = currentScreen.show(context);
         }
     }
 }
