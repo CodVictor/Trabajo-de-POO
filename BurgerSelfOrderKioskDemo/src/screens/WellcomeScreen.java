@@ -4,8 +4,8 @@
  */
 package screens;
 
-import context.Context;
-import utils.SimpleKiosk;
+import manager.Context;
+import manager.SimpleKiosk;
 
 public class WellcomeScreen implements KioskScreen {
     @Override
@@ -18,7 +18,7 @@ public class WellcomeScreen implements KioskScreen {
 
         char event = kiosk.waitEvent(30);
         if (event == 'A') {
-            context.setOrder(new order.Order(context.getNextOrderNumber()));
+            context.setOrder(new products.Order(context.getNextOrderNumber()));
             return new OrderScreen();
         } else if (event == 'B') {
             return (KioskScreen) new IdiomScreen() {
