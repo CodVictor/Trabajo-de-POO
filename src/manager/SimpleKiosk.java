@@ -43,7 +43,7 @@ public class SimpleKiosk {
         
         public void setTitle(String title){
             kiosk.setTitle(title);
-        }
+       }
         
         public void setDescription(String description){
             kiosk.setDescription(description);
