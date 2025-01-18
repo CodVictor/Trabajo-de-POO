@@ -5,6 +5,13 @@
 
 
 package manager;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Writer;
+import java.util.Scanner;
 import products.Order;
 import products.MenuCard;
 
@@ -12,7 +19,7 @@ import products.MenuCard;
  *
  * @author victor
  */
-public class Context {
+public class Context { 
         private SimpleKiosk kiosk = new SimpleKiosk();
         private TranslatorManager translator =new TranslatorManager();        
         private Order order = new Order();
@@ -21,9 +28,9 @@ public class Context {
         private int kioskNumber;        //identifica cada pantalla (cada kiosko en la Hambuergueseria(n maquinas)
         private int numberOfKiosks;     //numero total de maquinas (n maquinas)
       
-        public Context() {
-        // Constructor vacío para permitir la inicialización posterior
-        }
+    /**
+     *
+     */
 /*entra en un bucle que muestra la pantalla actual. 
         Cuando finaliza la ejecución de la
         pantalla actual, dicha pantalla devolverá 
@@ -60,20 +67,33 @@ public class Context {
             
         }
         
-        public void initialize() throws Exception {
-            // Inicializar el TranslatorManager
-            TranslatorManager translatorManager = new TranslatorManager();
-        translatorManager.loadLanguages("Traductions"); // Cargar los idiomas desde la carpeta
-        translatorManager.setCurrentLanguage("spanish"); // Configurar el idioma predeterminado
-
-        // Inicializar el SimpleKiosk
-        kiosk = new SimpleKiosk();
-
-        // Configuración inicial del kiosco (opcional)
-        kiosk.clearScreen();
-        kiosk.setMenuMode();
-        kiosk.setTitle(translatorManager.translate("Cargando sistema..."));
-    }
+        public Context() throws FileNotFoundException, IOException {
+            kiosk = new SimpleKiosk();
+            translator = kiosk.getTranslatorManager(); 
+            
+            menuCard = MenuCard.loadFromDisk();
+            
+            InputStream stream = new FileInputStream("KioskFiles/KioskConfiguration.txt");
+            Scanner scanner = new Scanner(stream);
+            scanner.nextLine();
+            int thisKioskNumber = scanner.nextInt();
+            scanner.nextLine();
+            scanner.nextLine();
+            int orderIncrease = scanner.nextInt();
+            scanner.close(); 
+            
+            String orderFileName = "KioskFiles/ActualOrder.txt"; //metemmos el numero de pedido actual
+            InputStream orderStream = new FileInputStream(orderFileName);
+            Scanner orderScanner = new Scanner(orderStream); 
+            
+                if (!orderScanner.hasNext()){
+                    Writer writer = new FileWriter(orderFileName);
+                    writer.write(String.valueOf(thisKioskNumber));
+                    writer.close();
+                    
+                }
+            
+        }
         
         // Métodos relacionados con el kiosco
         public int getOrderNumber() {
@@ -90,8 +110,5 @@ public class Context {
         public void resetOrder() {
         this.order = null;
         }
-        
-        
-        
-    
+
 }//End.
