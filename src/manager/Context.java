@@ -17,11 +17,13 @@ public class Context {
         private TranslatorManager translator =new TranslatorManager();        
         private Order order = new Order();
         private MenuCard menuCard = new MenuCard();
-        private int orderNumber;    //al inicializar el programa el numero de orden es 0 
+        public int orderNumber;         //al inicializar el programa el numero de orden es 0 
         private int kioskNumber;        //identifica cada pantalla (cada kiosko en la Hambuergueseria(n maquinas)
         private int numberOfKiosks;     //numero total de maquinas (n maquinas)
       
-        
+        public Context() {
+        // Constructor vacío para permitir la inicialización posterior
+        }
 /*entra en un bucle que muestra la pantalla actual. 
         Cuando finaliza la ejecución de la
         pantalla actual, dicha pantalla devolverá 
@@ -58,14 +60,20 @@ public class Context {
             
         }
         
-        public Context() {
-        kiosk = kiosk;
-        translator = translator;
-        menuCard = menuCard;
-        kioskNumber = kioskNumber;
-        numberOfKiosks = numberOfKiosks;
-        orderNumber = 0;   // Inicializamos el número de pedido en 0. Sin pedido activo al iniciar
-        }
+        public void initialize() throws Exception {
+            // Inicializar el TranslatorManager
+            TranslatorManager translatorManager = new TranslatorManager();
+        translatorManager.loadLanguages("Traductions"); // Cargar los idiomas desde la carpeta
+        translatorManager.setCurrentLanguage("spanish"); // Configurar el idioma predeterminado
+
+        // Inicializar el SimpleKiosk
+        kiosk = new SimpleKiosk();
+
+        // Configuración inicial del kiosco (opcional)
+        kiosk.clearScreen();
+        kiosk.setMenuMode();
+        kiosk.setTitle(translatorManager.translate("Cargando sistema..."));
+    }
         
         // Métodos relacionados con el kiosco
         public int getOrderNumber() {

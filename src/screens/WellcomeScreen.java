@@ -7,6 +7,7 @@ package screens;
 import manager.Context;
 import manager.SimpleKiosk;
 import manager.KioskScreen;
+import manager.TranslatorManager;
 /**
  *
  * @author victor
@@ -39,19 +40,20 @@ public class WellcomeScreen implements KioskScreen{
         
         
     private void configureScreenButtons(Context context) { //configuracion de los botones
+        TranslatorManager manager = new TranslatorManager();
         
                 SimpleKiosk kiosk = context.getKiosk();
                 
                 kiosk.clearScreen();
                 kiosk.setMenuMode();
-                kiosk.setDescription("'Dispuestos a hacer la mejor hamburgesa del mundo'");
+                kiosk.setDescription(manager.translate("'Dispuestos a hacer la mejor hamburgesa del mundo'"));
                 
-                kiosk.setOption('B', "Elegir idioma");
+                kiosk.setOption('B', manager.translate("Elegir idioma"));
                 
-                kiosk.setOption('C', "Iniciar order" );
+                kiosk.setOption('C', manager.translate("Iniciar order"));
                 
                 kiosk.setImage("logo.png");
-                kiosk.setTitle("Bienvenido a URJC Burger!");
+                kiosk.setTitle(manager.translate("Bienvenido a URJC Burger!"));
                 
                 
             }

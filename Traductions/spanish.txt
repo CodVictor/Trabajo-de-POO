@@ -1,96 +1,83 @@
 URJC Burguer Bienvenido!
-URJC Burguer Welcome!
+URJC Burguer Bienvenido!
 Nuevo pedido
-New order
+Nuevo pedido
 Cambiar idioma
-Change language
+Cambiar idioma
 ¿Qué quieres hacer?
-What do you want to do?
+¿Qué quieres hacer?
 Añadir menú al pedido
-Add menu to order
+Añadir menú al pedido
 Añadir producto individual a pedido
-Add individual product to order
+Añadir producto individual a pedido
 Cancelar
-Cancel
+Cancelar
 Selecciona la hamburguesa del menú
-Select the burger from the menu
+Selecciona la hamburguesa del menú
 Hamburguesa de ternera
-Beef burger
+Hamburguesa de ternera
 100 gr de carne 100% vacuno
-100 gr of 100% beef
+100 gr de carne 100% vacuno
 Selecciona la hamburguesa del menú
-Select the burger from the menu
+Selecciona la hamburguesa del menú
 Hamburguesa de pollo
-Chicken burger
+Hamburguesa de pollo
 100 gr de carne 100% pollo
-100 gr of 100% chicken
+100 gr de carne 100% pollo
 Precio:
-Price:
+Precio:
 Elige la bebida del menú
-Choose a drink for the menu
+Elige la bebida del menú
 Añadir producto individual a pedido
-Add individual product to order
+Añadir producto individual a pedido
 Eliminar elemento del pedido
-Remove item from order
+Eliminar elemento del pedido
 Finalizar pedido
-Finish order
+Finalizar pedido
 Pedido actual:
-Current order:
+Pedido actual:
 Elige una bebida
-Choose a drink
+Elige una bebida
 Añadir producto al pedido
-Add product to order
+Añadir producto al pedido
 Cancelar menú del pedido
-Cancel menu from order
+Cancelar menú del pedido
 Cocacola normal
-Regular Coca-Cola
+Cocacola normal
 Añadir producto individual a pedido
-Add individual product to order
+Añadir producto individual a pedido
 Eliminar elemento del pedido
-Remove item from order
+Eliminar elemento del pedido
 Finalizar pedido
-Finish order
+Finalizar pedido
 Introduce tu tarjeta de crédito
-Insert your credit card
+Introduce tu tarjeta de crédito
 Modificar pedido
-Modify order
+Modificar pedido
 Cancelar pedido
-Cancel order
+Cancelar pedido
 Proceso de pago exitoso
-Payment process successful
+Proceso de pago exitoso
 Ya puedes recoger tu tarjeta
-You can now collect your card
+Ya puedes recoger tu tarjeta
 Tu número de pedido es
-Your order number is
+Tu número de pedido es
 Recoge el ticket
-Pick up the ticket
+Recoge el ticket
 Te rogamos que permanezcas atento a las pantallas
-Please stay attentive to the screens
+Te rogamos que permanezcas atento a las pantallas
 Artículos comprados
-Purchased items
+Artículos comprados
 Total:
 Total:
 Número de pedido:
-Order number:
+Número de pedido:
 Problemas en el proceso de pago
-Problems in the payment process
+Problemas en el proceso de pago
 El banco dice que no tienes dinero. Prueba con otra tarjeta.
-The bank says you have no money. Try another card.
+El banco dice que no tienes dinero. Prueba con otra tarjeta.
 Problemas de comunicación en el proceso de pago
-Communication problems in the payment process
+Problemas de comunicación en el proceso de pago
 Reintentando
-Retrying
-
-
-
-
-
-
-
-
-
-
-
-
-
+Reintentando
 

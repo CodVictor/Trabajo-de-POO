@@ -27,14 +27,15 @@ public class CarrouselScreen implements KioskScreen {
             char event = kiosk.waitPressButton(); //en SimpleKiosk hay un metodo public q tiene waitButton() {return waitevent(60);}
             
             
-            KioskScreen = nextScreen;
+            KioskScreen nextScreen=this;
             
             if (event == 'B') {
                 nextScreen = new LanguajeScreen();
                 
             }else if ( event == 'D'){
                 nextScreen = new OrderScreen(); 
-            }else {
+            }
+            
             return nextScreen; 
             }
             

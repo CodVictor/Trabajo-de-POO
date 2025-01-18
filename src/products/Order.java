@@ -9,5 +9,14 @@ package products;
  * @author victor
  */
 public class Order {
+    public String getOrderText() { 
+        String orderText = "";
+        
+        return orderText;
+    }
     
+    public int getTotalAmount(){
+        int totalToPay = 0;
+        return totalToPay;
+    }
 }

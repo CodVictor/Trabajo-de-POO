@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package manager;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author victor
@@ -11,27 +14,35 @@ import java.util.*;
 public class TranslatorManager {
     private Translator currentDictionary;
     private Map<String, Translator> dictionaries;
-
-    // Constructor que inicializa los diccionarios
+    
     public TranslatorManager() {
         dictionaries = new HashMap<>();
     }
 
-    // Método para establecer el idioma actual
-    public void setCurrentLanguaje(String languaje) {
-        currentDictionary = dictionaries.get(languaje);
-    }
+    public void loadLanguages(String folderPath) throws FileNotFoundException {
+        File folder = new File(folderPath);
+        File[] files = folder.listFiles();
 
-    // Método para obtener la lista de idiomas disponibles
-    public List<String> getLanguajes() {
-        return new ArrayList<>(dictionaries.keySet());
-    }
-
-    // Método para traducir una cadena
-    public String translate(String word) {
-        if (currentDictionary == null) {
-            return word; // Si no hay diccionario activo, devuelve la palabra original
+        if (files != null) {
+            for (File file : files) {
+                String language = file.getName().replace(".txt", ""); // Obtener el idioma del nombre del archivo
+                dictionaries.put(language, new Translator(file.getPath()));
+            }
         }
-        return currentDictionary.translate(word);
+    }
+
+    public void setCurrentLanguage(String language) {
+        if (dictionaries.containsKey(language)) {
+            currentDictionary = dictionaries.get(language);
+        } else {
+            throw new IllegalArgumentException("Idioma no encontrado: " + language);
+        }
+    }
+
+    public String translate(String key) {
+        if (currentDictionary != null) {
+            return currentDictionary.translate(key);
+        }
+        return key; // Devuelve la clave si no hay diccionario actual
     }
 }
