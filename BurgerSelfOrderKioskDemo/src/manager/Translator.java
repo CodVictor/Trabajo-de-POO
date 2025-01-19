@@ -4,6 +4,7 @@
  */
 package manager;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
@@ -13,31 +14,61 @@ import java.util.HashMap;
  * @author Usuario
  */
 public class Translator {
-    private Map<String, String> translations;
+    
+    private final Map <String,String> translations; // Mapa que almacena las traducciones: clave (texto en español) y valor (texto traducido)
+    private final String language; // Idioma al que se traducirán los textos
 
-    public Translator(String filename) {
-        translations = new HashMap<>();
-        loadTranslations(filename);
+    /**
+     * Constructor de la clase Translator.
+     * Inicializa el idioma y carga las traducciones desde un archivo en disco.
+     * 
+     * @param language El idioma al que se realizará la traducción (por ejemplo, "en" para inglés).
+     * @throws FileNotFoundException Si el archivo de traducciones no se encuentra.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
+    public Translator(String language) throws FileNotFoundException, IOException {
+        this.language = language;
+        translations = new HashMap <> (); // Inicializa el mapa de traducciones
+        loadTranslationsFromDisk(); // Carga las traducciones desde el archivo correspondiente
     }
+    
 
-    private void loadTranslations(String filename) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            String spanishWord = null;
-            while ((line = reader.readLine()) != null) {
-                if (spanishWord == null) {
-                    spanishWord = line.trim();
-                } else {
-                    translations.put(spanishWord, line.trim());
-                    spanishWord = null; // reset for next word
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    /**
+     * Carga las traducciones desde un archivo en disco.
+     * El archivo tiene el nombre del idioma y contiene pares de líneas:
+     * la primera línea es el texto original en español, y la segunda línea es su traducción.
+     * 
+     * @throws FileNotFoundException Si el archivo de traducciones no se encuentra.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
+    private void loadTranslationsFromDisk() throws FileNotFoundException, IOException {
+        String fileName = language + ".txt"; // El archivo tiene el nombre del idioma (por ejemplo, "en.txt" para inglés)
+        FileReader reader = new FileReader (fileName); // Crea un lector de archivos
+        BufferedReader buffer = new BufferedReader(reader); // Crea un buffer para leer línea por línea
+        
+        String originalString = buffer.readLine(); // Lee la primera línea (texto original)
+        String translatedString = buffer.readLine(); // Lee la segunda línea (traducción)
+        
+        // Mientras haya líneas para leer en el archivo
+        while (originalString != null) {  
+            translations.put(originalString, translatedString); // Añade el par de traducción al mapa
+            originalString = buffer.readLine(); // Lee la siguiente línea (nuevo texto original)
+            translatedString = buffer.readLine(); // Lee la siguiente línea (nueva traducción)
+        } 
     }
-
-    public String translate(String word) {
-        return translations.getOrDefault(word, word); // Si no encuentra la traducción, devuelve la palabra original
+        
+    /**
+     * Traduce un texto al idioma seleccionado utilizando el mapa de traducciones.
+     * Si el texto no tiene traducción, devuelve el mismo texto original.
+     * 
+     * @param text El texto que se desea traducir.
+     * @return La traducción del texto, o el mismo texto si no tiene traducción.
+     */
+    public String translate(String text) {
+        String translation = translations.get(text); // Busca la traducción en el mapa
+        if (translation != null)
+            return translation; // Si se encuentra la traducción, la devuelve
+        else
+            return text; // Si no se encuentra la traducción, devuelve el texto original
     }
 }

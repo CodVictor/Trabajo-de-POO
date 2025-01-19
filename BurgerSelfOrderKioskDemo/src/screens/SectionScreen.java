@@ -4,9 +4,11 @@
  */
 package screens;
 
+import java.io.IOException;
 import manager.Context;
 import manager.SimpleKiosk;
 import manager.KioskScreen;
+import manager.TranslatorManager;
 
 /**
  *
@@ -36,20 +38,20 @@ public class SectionScreen implements KioskScreen{
             return nextScreen; 
             }
             
-    private void configureScreenButtons(Context context) {
+    private void configureScreenButtons(Context context) throws IOException {
         
                 SimpleKiosk kiosk = context.getKiosk();
-                
+                TranslatorManager translator = context.getTranslator();
                 kiosk.clearScreen();
                 kiosk.setMenuMode();
-                kiosk.setDescription("'Dispuestos a hacer la mejor hamburgesa del mundo'");
+                kiosk.setDescription(translator.translate("'Dispuestos a hacer la mejor hamburgesa del mundo'"));
                 
-                kiosk.setOption('B', "Elegir idioma");
+                kiosk.setOption('B', translator.translate("Elegir idioma"));
                 
-                kiosk.setOption('C', "Iniciar order" );
+                kiosk.setOption('C',  translator.translate("Iniciar order") );
                 
                 kiosk.setImage("logo.png");
-                kiosk.setTitle("Bienvenido a URJC Burger!");
+                kiosk.setTitle( translator.translate("Bienvenido a URJC Burger!"));
                 
                 
             }

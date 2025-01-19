@@ -1,110 +1,96 @@
 Bienvenido a URJC Burger!
-URJC Burguer Benvingut!
+URJC Burguer Bem-vindo!
 Dispuestos a hacer la mejor hamburgesa del mundo
-Disposats a fer la millor hamburgesa del món
+Pronto para fazer o melhor hambúrguer do mundo
 Selecciona un idioma
-Seleccioneu un idioma
+Selecione um idioma
 Me encanta
-M'encanta
+Eu Amo
 Ingles 
-Angles
+Ingles
 Español 
-Espanyol
+Espanhol
 Portugues
 Portugues
 Nuevo pedido
-Nova comanda
+Novo pedido
+Escoge el idioma que desees
+Escolha o idioma que desejar
 Cambiar idioma
-Canviar idioma
+Mudar idioma
 ¿Qué quieres hacer?
-Què vols fer?
+O que você quer fazer?
 Añadir menú al pedido
-Afegir menú a la comanda
+Adicionar menu ao pedido
 Añadir producto individual a pedido
-Afegir producte individual a la comanda
+Adicionar produto individual ao pedido
 Cancelar
-Cancel·lar
+Cancelar
 Selecciona la hamburguesa del menú
-Selecciona l'hamburguesa del menú
+Selecione o hambúrguer do menu
 Hamburguesa de ternera
-Hamburguesa de vedella
+Hambúrguer de carne bovina
 100 gr de carne 100% vacuno
-100 g de carn 100% vedella
+100g de carne 100% bovina
 Selecciona la hamburguesa del menú
-Selecciona l'hamburguesa del menú
+Selecione o hambúrguer do menu
 Hamburguesa de pollo
-Hamburguesa de pollastre
+Hambúrguer de frango
 100 gr de carne 100% pollo
-100 g de carn 100% pollastre
+100g de carne 100% frango
 Precio:
-Preu:
+Preço:
 Elige la bebida del menú
-Tria la beguda del menú
+Escolha a bebida do menu
 Añadir producto individual a pedido
-Afegir producte individual a la comanda
+Adicionar produto individual ao pedido
 Eliminar elemento del pedido
-Eliminar element de la comanda
+Remover item do pedido
 Finalizar pedido
-Finalitzar comanda
+Finalizar pedido
 Pedido actual:
-Comanda actual:
+Pedido atual:
 Elige una bebida
-Tria una beguda
+Escolha uma bebida
 Añadir producto al pedido
-Afegir producte a la comanda
+Adicionar produto ao pedido
 Cancelar menú del pedido
-Cancel·lar menú de la comanda
+Cancelar menu do pedido
 Cocacola normal
 Coca-Cola normal
 Añadir producto individual a pedido
-Afegir producte individual a la comanda
+Adicionar produto individual ao pedido
 Eliminar elemento del pedido
-Eliminar element de la comanda
+Remover item do pedido
 Finalizar pedido
-Finalitzar comanda
+Finalizar pedido
 Introduce tu tarjeta de crédito
-Introdueix la teva targeta de crèdit
+Digite seu cartão de crédito
 Modificar pedido
-Modificar comanda
+Modificar pedido
 Cancelar pedido
-Cancel·lar comanda
+Cancelar pedido
 Proceso de pago exitoso
-Procés de pagament amb èxit
+Processo de pagamento bem-sucedido
 Ya puedes recoger tu tarjeta
-Ja pots recollir la teva targeta
+Você pode retirar seu cartão
 Tu número de pedido es
-El teu número de comanda és
+Seu número de pedido é
 Recoge el ticket
-Recull el tiquet
+Retire o ticket
 Te rogamos que permanezcas atento a las pantallas
-Et preguem que estiguis atent a les pantalles
+Pedimos que fique atento às telas
 Artículos comprados
-Articles comprats
+Itens comprados
 Total:
 Total:
 Número de pedido:
-Número de comanda:
+Número do pedido:
 Problemas en el proceso de pago
-Problemes en el procés de pagament
+Problemas no processo de pagamento
 El banco dice que no tienes dinero. Prueba con otra tarjeta.
-El banc diu que no tens diners. Prova amb una altra targeta.
+O banco diz que você não tem dinheiro. Tente outro cartão.
 Problemas de comunicación en el proceso de pago
-Problemes de comunicació en el procés de pagament
+Problemas de comunicação no processo de pagamento
 Reintentando
-Reintentant
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Tentando novamente

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package manager;
+import java.io.IOException;
 import sienens.BurgerSelfOrderKiosk;
 import java.util.*;
 /**
@@ -69,7 +70,7 @@ public class SimpleKiosk {
         kiosk.retainCreditCard(retain);
     }
 
-    public TranslatorManager getTranslatorManager(){
+    public TranslatorManager getTranslatorManager() throws IOException{
         TranslatorManager TranslatorManager = new TranslatorManager(); 
         return TranslatorManager;
     }

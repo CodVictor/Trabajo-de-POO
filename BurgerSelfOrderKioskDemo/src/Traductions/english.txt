@@ -1,5 +1,16 @@
-URJC Burguer Bienvenido!
-URJC Burguer Welcome!
+Bienvenido a URJC Burger!
+Welcome to URJC Burger!
+Dispuestos a hacer la mejor hamburgesa del mundo
+Ready to make the best hamburger in the world
+Selecciona un idioma
+Select a language
+Me encanta
+I love it!
+Ingles English
+Español 
+Spanish
+Portugues
+Portuguese
 Nuevo pedido
 New order
 Cambiar idioma
@@ -80,7 +91,13 @@ Problemas de comunicación en el proceso de pago
 Communication problems in the payment process
 Reintentando
 Retrying
-
+Me encanta
+I love it!!
+Ingles English
+Español 
+Spanish
+Portugues
+Portuguese
 
 
 

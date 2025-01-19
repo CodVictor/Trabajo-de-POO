@@ -19,8 +19,8 @@ public class Menu implements Product{
         this.products = products;
         this.discount = discount;
     }
-    public float setDiscount(int discount){
-        
+    public void setDiscount(int discount){
+        this.discount = discount;
     }
 
     @Override

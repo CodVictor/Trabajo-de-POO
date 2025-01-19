@@ -49,7 +49,7 @@ public class WellcomeScreen implements KioskScreen{
                 kiosk.setMenuMode();
                 kiosk.setTitle(manager.translate("Bienvenido a URJC Burger!"));
                 kiosk.setImage("logo.png");
-                kiosk.setDescription(manager.translate("'Dispuestos a hacer la mejor hamburgesa del mundo'"));
+                kiosk.setDescription(manager.translate("Dispuestos a hacer la mejor hamburgesa del mundo"));
                 
                 kiosk.setOption('B', manager.translate("Nuevo pedido"));
 
