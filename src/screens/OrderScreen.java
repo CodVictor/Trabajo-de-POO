@@ -4,58 +4,78 @@
  */
 package screens;
 
+import java.util.List;
 import manager.SimpleKiosk;
 import manager.KioskScreen;
 import sienens.BurgerSelfOrderKiosk;
 import manager.Context;
+import manager.TranslatorManager;
+import products.Product;
 
 /**
  *
- * @author victor
- */
-public class OrderScreen implements KioskScreen{
-    
-       @Override
-        public KioskScreen show(Context context) {
-            configureScreenButtons(context); //mete los botones en la pantalla
-            
-            SimpleKiosk kiosk = context.getKiosk(); //creamos kiosk
-            
-          
-            //ahora el waitbutton espera a que el usuario pulse uno de los botones 
-            char event = kiosk.waitPressButton(); //en SimpleKiosk hay un metodo public q tiene waitButton() {return waitevent(60);}
-            
-            
-            KioskScreen nextScreen = this;
-            
-            if (event == 'B') {
-                nextScreen = new LanguajeScreen();
-                
-            }else if ( event == 'D'){
-                nextScreen = new OrderScreen(); 
-            }
-            
-            return nextScreen; 
-            
-}
-    private void configureScreenButtons(Context context) {
-        
-                SimpleKiosk kiosk = context.getKiosk();
-                
-                kiosk.clearScreen();
-                kiosk.setMenuMode();
-                kiosk.setDescription("'Dispuestos a hacer la mejor hamburgesa del mundo'");
-                
-                kiosk.setOption('B', "Elegir idioma");
-                
-                kiosk.setOption('C', "Iniciar order" );
-                
-                kiosk.setImage("logo.png");
-                kiosk.setTitle("Bienvenido a URJC Burger!");
-                
-                
-            }
+ * @author Victor Oliveira, Ruben Ruiz, Ariel Lozano
+ */ 
+public class OrderScreen implements KioskScreen {
+
+    private List<Product> orderProducts; // Lista local de productos
+
+    public OrderScreen() {
+        //constructor
     }
+
+    @Override
+    public KioskScreen show(Context context) {
+        configureScreenButtons(context); // Configura los botones en la pantalla
+
+        SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el quiosco
+
+        // Espera la pulsación de un botón
+        char event = kiosk.waitPressButton();
+
+        KioskScreen nextScreen = this;
+
+        if (event == 'A') {
+            //Añadir producto
+            //nextScreen = (KioskScreen) new ProductScreen(List<Product> products, String section);
+        } else if (event == 'B') {
+            // Añadir menu
+            nextScreen = (KioskScreen) new MenuScreen((List<Product>) context);
+        } else if (event == 'C'){// Eliminar producto
+            deleteProduct(kiosk);
+            
+        }else if (event == 'D'){//vamos a pantalla de pago
+            nextScreen = new PurshaseScreen();
+            
+        }else if (event == 'E'){//cancelar = volver a wellcome
+            nextScreen = new WellcomeScreen();
+        }
+        return nextScreen;
+    }
+
+    private void configureScreenButtons(Context context) {
+        TranslatorManager manager = context.getTranslator();
+        SimpleKiosk kiosk = context.getKiosk();
+
+        kiosk.clearScreen();
+        kiosk.setMenuMode();
+        kiosk.setImage("Pedido.png");
+        kiosk.setTitle(manager.translate("Pedido"));
+        kiosk.setDescription(manager.translate("Comienza a pedir aqui"));
+
+        kiosk.setOption('A', manager.translate("Añadir producto individual a pedido"));
+        kiosk.setOption('B', manager.translate("Añadir menú al pedido"));
+        kiosk.setOption('C', manager.translate("Eliminar producto"));
+        kiosk.setOption('D', manager.translate("Finalizar pedido"));
+        kiosk.setOption('E', manager.translate("Cancelar"));
+    }
+
+    private void deleteProduct(SimpleKiosk kiosk) {
+       
+    }
+}
+
+
             
 
          

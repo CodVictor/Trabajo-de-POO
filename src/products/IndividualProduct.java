@@ -9,5 +9,9 @@ package products;
  * @author victor
  */
 public class IndividualProduct {
+
+    IndividualProduct(String productName, int productPrice) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

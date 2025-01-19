@@ -4,19 +4,40 @@
  */
 package products;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author victor
  */
+
 public class Order {
-    public String getOrderText() { 
-        String orderText = "";
+    private List<Product> products;  // Lista de productos en el pedido
+
+    // Constructor
+    public Order() {
+        products = new ArrayList<>();
+    }
+
+    // Agregar un producto al pedido
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    // Obtener la lista de productos
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public int getTotalToPay(){
+        int totalToPay = 0;//0$ al inicio
         
-        return orderText;
+        for (Product product : products) {
+            totalToPay += product.getPrice();
+        }
+        return totalToPay; //devolvemos el total calculado
     }
     
-    public int getTotalAmount(){
-        int totalToPay = 0;
-        return totalToPay;
-    }
 }
+

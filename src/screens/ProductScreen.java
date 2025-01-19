@@ -4,55 +4,77 @@
  */
 package screens;
 
+import java.util.List;
 import manager.Context;
 import manager.KioskScreen;
 import manager.SimpleKiosk;
+import manager.TranslatorManager;
+import products.Product;
 
 
 /**
  *
- * @author victor
- */
-public class ProductScreen implements KioskScreen{
+ * @author Victor Oliveira, Ruben Ruiz, Ariel Lozano
+ */ 
+public class ProductScreen extends CarrouselScreen {
     
-    @Override
+    private String section; // Para almacenar la sección seleccionada
+
+    // Constructor que recibe la lista de productos y llama al constructor de CarrouselScreen
+    public ProductScreen(List<Product> products, String section) {
+        super(products);
+        this.section = section; // Inicializa la sección seleccionada
+    }
+
+   
+    // Método para mostrar la pantalla de productos
     public KioskScreen show(Context context) {
-          
-            configureScreenButtons(context); //mete los botones en la pantalla
-            
-            SimpleKiosk kiosk = context.getKiosk(); //creamos kiosk
-            
-          
-            //ahora el waitbutton espera a que el usuario pulse uno de los botones 
-            char event = kiosk.waitPressButton(); //en SimpleKiosk hay un metodo public q tiene waitButton() {return waitevent(60);}
-            
-            
-            KioskScreen nextScreen = this;
-            
-            if (event == 'B') {
-                nextScreen = new LanguajeScreen();
-                
-            }else if ( event == 'D'){
-                
-            }
-            return nextScreen; 
-            }
-            
-    private void configureScreenButtons(Context context) {
+        TranslatorManager manager = context.getTranslator();
+        SimpleKiosk kiosk = context.getKiosk();
+
+        // Configurar la pantalla del kiosco
+        kiosk.clearScreen();
+        kiosk.setMenuMode();
+        kiosk.setTitle(manager.translate("Productos") + " - " + section); //bebidas, complementos o pPrincipales
         
-                SimpleKiosk kiosk = context.getKiosk();
-                
-                kiosk.clearScreen();
-                kiosk.setMenuMode();
-                kiosk.setDescription("'Dispuestos a hacer la mejor hamburgesa del mundo'");
-                
-                kiosk.setOption('B', "Elegir idioma");
-                
-                kiosk.setOption('C', "Iniciar order" );
-                
-                kiosk.setImage("logo.png");
-                kiosk.setTitle("Bienvenido a URJC Burger!");
-                
-                
+        // Configurar las opciones de navegación
+        kiosk.setOption('D', manager.translate("Añadir Producto"));
+        kiosk.setOption('H', ">");  // Botón siguiente
+        kiosk.setOption('G', "<");  // Botón anterior
+
+        // Mostrar el primer producto en el carrusel
+        displayProduct(kiosk, getCurrentProduct());
+
+        // Navegar entre los productos
+        boolean navigating = true;
+        
+        while (navigating) {
+            char event = kiosk.waitPressButton(); // Espera la pulsación de un botón
+            switch (event) {
+                case 'H': // Siguiente producto
+                    next(); // Utilizamos el método next() de CarrouselScreen
+                    displayProduct(kiosk, getCurrentProduct()); // Mostrar el siguiente producto
+                    break;
+                case 'G': // Producto anterior
+                    previous(); // Utilizamos el método previous() de CarrouselScreen
+                    displayProduct(kiosk, getCurrentProduct()); // Mostrar el producto anterior
+                    break;
+                case 'D': // Seleccionar el producto
+                    kiosk.setDescription(manager.translate("Producto seleccionado") + ": " + getCurrentProduct().getName());
+                    navigating = false; // Terminar la navegación
+                    break;
+                default:
+                    // No hacer nada si no se presionan las teclas esperadas
+                    break;
             }
+        }
+
+        return (KioskScreen) this; // Regresa la misma pantalla
+    }
+
+    // Método para mostrar un producto en la pantalla
+    private void displayProduct(SimpleKiosk kiosk, Product product) {
+        kiosk.setImage(product.getImagePath()); // Establecer la imagen del producto
+        kiosk.setDescription(product.getName()); // Establecer la descripción (nombre) del producto
+    }
 }

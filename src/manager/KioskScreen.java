@@ -9,7 +9,7 @@ package manager;
  *
  * @author victor
  */
-//NO MODIFICAR NADA AQUI.
+//NO MODIFICAR "NADA" AQUI.
 public interface KioskScreen { //prototipo de pantalla. 
     /**
      * Muestra la pantalla actual y devuelve la próxima pantalla a mostrar.
@@ -18,6 +18,7 @@ public interface KioskScreen { //prototipo de pantalla.
      * @return La próxima pantalla que se debe mostrar.
      */
     public KioskScreen show(Context context);
+    
 }
 
     

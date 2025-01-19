@@ -8,6 +8,14 @@ package products;
  *
  * @author victor
  */
-public class Product {
-    
+public interface Product {
+    int getPrice(); // Devuelve el precio del producto
+    String getName(); // Devuelve el nombre del producto
+ 
+    public String getImagePath();
+
+    public String getDescription();
+
+    public static class getPrice {
+    }
 }

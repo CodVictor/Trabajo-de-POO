@@ -4,22 +4,29 @@
  */
 package screens;
 
+import java.util.List;
 import manager.Context;
 import manager.SimpleKiosk;
 import manager.KioskScreen;
+import manager.TranslatorManager;
+import products.Order;
+import products.Product;
 import sienens.BurgerSelfOrderKiosk;
 
 /**
  *
- * @author victor
- */
-public class MenuScreen implements KioskScreen {
+ * @author Victor Oliveira, Ruben Ruiz, Ariel Lozano
+ */ 
+public class MenuScreen extends CarrouselScreen {
 
-    @Override
-    public KioskScreen show(Context context) {
-          
+    public MenuScreen(List<Product> products) {
+        super(products);
+    }
+
+  
+    
+        public KioskScreen show(Context context) {
             configureScreenButtons(context); //mete los botones en la pantalla
-            
             SimpleKiosk kiosk = context.getKiosk(); //creamos kiosk
             
           
@@ -27,32 +34,39 @@ public class MenuScreen implements KioskScreen {
             char event = kiosk.waitPressButton(); //en SimpleKiosk hay un metodo public q tiene waitButton() {return waitevent(60);}
             
             
-            KioskScreen = nextScreen;
+            KioskScreen nextScreen= (KioskScreen) this;
             
             if (event == 'B') {
-                nextScreen = new LanguajeScreen();
-                
-            }else if ( event == 'D'){
-                nextScreen = new OrderScreen(); 
-            }else {
-            return nextScreen; 
+                    //add menu to cart
+            }else if ( event == 'C'){
+                nextScreen = new OrderScreen(); //se vuelve a OrderScreen() para añadir un producto
+            }else if (event == 'G'){
+                //product.nextProduct(context);
+            }else if (event == 'H'){
+                //product.previousProduct(context);
             }
-            
-    private void configureScreenButtons(Context context) {
+         
+            return nextScreen; 
         
+}
+        
+        
+    private void configureScreenButtons(Context context) { //configuracion de los botones
+                TranslatorManager manager = context.getTranslator(); // Usar el TranslatorManager del contexto
+
                 SimpleKiosk kiosk = context.getKiosk();
                 
                 kiosk.clearScreen();
                 kiosk.setMenuMode();
-                kiosk.setDescription("'Dispuestos a hacer la mejor hamburgesa del mundo'");
+                kiosk.setTitle(manager.translate("Menu"));
                 
-                kiosk.setOption('B', "Elegir idioma");
+                kiosk.setOption('B', manager.translate("Añadir menu"));
                 
-                kiosk.setOption('C', "Iniciar order" );
-                
-                kiosk.setImage("logo.png");
-                kiosk.setTitle("Bienvenido a URJC Burger!");
-                
+                kiosk.setOption('C', manager.translate("Cancelar"));
+                //esta clase implementa un carrusel en ella que va mostrando los productos del menu
+                kiosk.setOption('G', "<"); //anterior
+                kiosk.setOption('H', ">"); //siguiente
                 
             }
-    }
+
+    }//END.

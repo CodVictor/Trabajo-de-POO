@@ -3,39 +3,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package manager;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+
+import java.io.*;
+import java.util.*;
 //Esto esta todo en el Tema 7
 /**
  *
  * @author victor
  */
 public class Translator {
-    private Map<String, String> words;
+    private Map<String, String> translations;
 
-    public Translator(String fileName) throws FileNotFoundException {
-        words = new HashMap<>();
-        loadTraductions(fileName);
+    public Translator(String filename) {
+        translations = new HashMap<>();
+        loadTranslations(filename);
     }
 
-    private void loadTraductions(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        Scanner scanner = new Scanner(file);
-
-        while (scanner.hasNextLine()) {
-            String original = scanner.nextLine().trim(); // Leer palabra original
-            if (scanner.hasNextLine()) {
-                String traduccion = scanner.nextLine().trim(); // Leer traducción
-                words.put(original, traduccion);
+    private void loadTranslations(String filename) {
+        //leemos el archivo txt con BufferedReader 
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            
+            String line;
+            String spanishWord = null;
+            
+            while ((line = reader.readLine()) != null) {//si el resultado es distinto de null quiere decir que hay algo 
+                
+                if (spanishWord == null) {
+                    
+                    spanishWord = line.trim();
+                    
+                } else {
+                    translations.put(spanishWord, line.trim());
+                    spanishWord = null; // reset for next word
+                }
             }
+        } catch (IOException e) {
+            
+            e.printStackTrace();
         }
-        scanner.close();
     }
-
-    public String translate(String key) {
-        return words.getOrDefault(key, key); // Devuelve la traducción o la clave si no existe
+    
+    
+    public String translate(String word) {
+        return translations.getOrDefault(word, word); // Si no encuentra la traducción, devuelve la palabra original
     }
 }

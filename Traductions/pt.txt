@@ -1,83 +1,84 @@
 URJC Burguer Bienvenido!
-URJC Burguer Bienvenido!
+URJC Burguer Bem-vindo!
 Nuevo pedido
-Nuevo pedido
+Novo pedido
+Escoge el idioma que desees
+Escolha o idioma que desejar
 Cambiar idioma
-Cambiar idioma
+Mudar idioma
 ¿Qué quieres hacer?
-¿Qué quieres hacer?
+O que você quer fazer?
 Añadir menú al pedido
-Añadir menú al pedido
+Adicionar menu ao pedido
 Añadir producto individual a pedido
-Añadir producto individual a pedido
+Adicionar produto individual ao pedido
 Cancelar
 Cancelar
 Selecciona la hamburguesa del menú
-Selecciona la hamburguesa del menú
+Selecione o hambúrguer do menu
 Hamburguesa de ternera
-Hamburguesa de ternera
+Hambúrguer de carne bovina
 100 gr de carne 100% vacuno
-100 gr de carne 100% vacuno
+100g de carne 100% bovina
 Selecciona la hamburguesa del menú
-Selecciona la hamburguesa del menú
+Selecione o hambúrguer do menu
 Hamburguesa de pollo
-Hamburguesa de pollo
+Hambúrguer de frango
 100 gr de carne 100% pollo
-100 gr de carne 100% pollo
+100g de carne 100% frango
 Precio:
-Precio:
+Preço:
 Elige la bebida del menú
-Elige la bebida del menú
+Escolha a bebida do menu
 Añadir producto individual a pedido
-Añadir producto individual a pedido
+Adicionar produto individual ao pedido
 Eliminar elemento del pedido
-Eliminar elemento del pedido
+Remover item do pedido
 Finalizar pedido
 Finalizar pedido
 Pedido actual:
-Pedido actual:
+Pedido atual:
 Elige una bebida
-Elige una bebida
+Escolha uma bebida
 Añadir producto al pedido
-Añadir producto al pedido
+Adicionar produto ao pedido
 Cancelar menú del pedido
-Cancelar menú del pedido
+Cancelar menu do pedido
 Cocacola normal
-Cocacola normal
+Coca-Cola normal
 Añadir producto individual a pedido
-Añadir producto individual a pedido
+Adicionar produto individual ao pedido
 Eliminar elemento del pedido
-Eliminar elemento del pedido
+Remover item do pedido
 Finalizar pedido
 Finalizar pedido
 Introduce tu tarjeta de crédito
-Introduce tu tarjeta de crédito
+Digite seu cartão de crédito
 Modificar pedido
 Modificar pedido
 Cancelar pedido
 Cancelar pedido
 Proceso de pago exitoso
-Proceso de pago exitoso
+Processo de pagamento bem-sucedido
 Ya puedes recoger tu tarjeta
-Ya puedes recoger tu tarjeta
+Você pode retirar seu cartão
 Tu número de pedido es
-Tu número de pedido es
+Seu número de pedido é
 Recoge el ticket
-Recoge el ticket
+Retire o ticket
 Te rogamos que permanezcas atento a las pantallas
-Te rogamos que permanezcas atento a las pantallas
+Pedimos que fique atento às telas
 Artículos comprados
-Artículos comprados
+Itens comprados
 Total:
 Total:
 Número de pedido:
-Número de pedido:
+Número do pedido:
 Problemas en el proceso de pago
-Problemas en el proceso de pago
+Problemas no processo de pagamento
 El banco dice que no tienes dinero. Prueba con otra tarjeta.
-El banco dice que no tienes dinero. Prueba con otra tarjeta.
+O banco diz que você não tem dinheiro. Tente outro cartão.
 Problemas de comunicación en el proceso de pago
-Problemas de comunicación en el proceso de pago
+Problemas de comunicação no processo de pagamento
 Reintentando
-Reintentando
-
+Tentando novamente

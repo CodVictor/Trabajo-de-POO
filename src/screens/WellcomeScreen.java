@@ -8,16 +8,18 @@ import manager.Context;
 import manager.SimpleKiosk;
 import manager.KioskScreen;
 import manager.TranslatorManager;
+import products.Order;
+
 /**
  *
- * @author victor
- */
+ * @author Victor Oliveira, Ruben Ruiz, Ariel Lozano
+ */ 
 public class WellcomeScreen implements KioskScreen{
 
      @Override
         public KioskScreen show(Context context) {
             configureScreenButtons(context); //mete los botones en la pantalla
-            
+            Order orderProducts = new Order();
             SimpleKiosk kiosk = context.getKiosk(); //creamos kiosk
             
           
@@ -30,8 +32,8 @@ public class WellcomeScreen implements KioskScreen{
             if (event == 'B') {
                 nextScreen = new LanguajeScreen();
                 
-            }else if ( event == 'D'){
-                nextScreen = (KioskScreen) new OrderScreen(); 
+            }else if ( event == 'C'){
+                nextScreen =  new OrderScreen(); 
             }
          
             return nextScreen; 
@@ -40,21 +42,18 @@ public class WellcomeScreen implements KioskScreen{
         
         
     private void configureScreenButtons(Context context) { //configuracion de los botones
-        TranslatorManager manager = new TranslatorManager();
-        
+                TranslatorManager manager = context.getTranslator(); // Usar el TranslatorManager del contexto
                 SimpleKiosk kiosk = context.getKiosk();
                 
                 kiosk.clearScreen();
                 kiosk.setMenuMode();
+                kiosk.setTitle(manager.translate("Bienvenido a URJC Burger!"));
+                kiosk.setImage("logo.png");
                 kiosk.setDescription(manager.translate("'Dispuestos a hacer la mejor hamburgesa del mundo'"));
                 
                 kiosk.setOption('B', manager.translate("Elegir idioma"));
                 
-                kiosk.setOption('C', manager.translate("Iniciar order"));
-                
-                kiosk.setImage("logo.png");
-                kiosk.setTitle(manager.translate("Bienvenido a URJC Burger!"));
-                
+                kiosk.setOption('C', manager.translate("Iniciar pedido"));
                 
             }
 

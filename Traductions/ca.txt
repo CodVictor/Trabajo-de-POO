@@ -1,0 +1,100 @@
+URJC Burguer Benvingut!
+URJC Burguer Bem-vindo!
+Nou comanda
+New order
+Trieu l'idioma que vulgueu
+Choose the language you prefer
+Canviar idioma
+Change language
+Què vols fer?
+What do you want to do?
+Afegir menú a la comanda
+Add menu to order
+Afegir producte individual a la comanda
+Add individual product to order
+Cancel·lar
+Cancel
+Selecciona l'hamburguesa del menú
+Select the burger from the menu
+Hamburguesa de vedella
+Beef burger
+100 gr de carn 100% boví
+100g of 100% beef
+Selecciona l'hamburguesa del menú
+Select the burger from the menu
+Hamburguesa de pollastre
+Chicken burger
+100 gr de carn 100% pollastre
+100g of 100% chicken
+Preu:
+Price:
+Trieu la beguda del menú
+Choose the drink from the menu
+Afegir producte individual a la comanda
+Add individual product to order
+Eliminar element de la comanda
+Remove item from order
+Finalitzar comanda
+Finalize order
+Comanda actual:
+Current order:
+Trieu una beguda
+Choose a drink
+Afegir producte a la comanda
+Add product to order
+Cancel·lar menú de la comanda
+Cancel menu from order
+Cocacola normal
+Regular Coca-Cola
+Afegir producte individual a la comanda
+Add individual product to order
+Eliminar element de la comanda
+Remove item from order
+Finalitzar comanda
+Finalize order
+Introduïu la vostra targeta de crèdit
+Enter your credit card
+Modificar comanda
+Modify order
+Cancel·lar comanda
+Cancel order
+Procés de pagament exitós
+Payment process successful
+Ja podeu recollir la vostra targeta
+You can now collect your card
+El vostre número de comanda és
+Your order number is
+Recolliu el tiquet
+Pick up the ticket
+Us preguem que romangueu atents a les pantalles
+Please stay alert to the screens
+Articles comprats
+Items purchased
+Total:
+Total:
+Número de comanda:
+Order number:
+Problemes en el procés de pagament
+Problems in the payment process
+El banc diu que no tens diners. Prova amb una altra targeta.
+The bank says you have no money. Try another card.
+Problemes de comunicació en el procés de pagament
+Communication issues in the payment process
+Reintentant
+Retrying
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

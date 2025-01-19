@@ -14,15 +14,14 @@ import sienens.BurgerSelfOrderKiosk;
 public class SimpleKiosk {
     
     private final BurgerSelfOrderKiosk kiosk = new BurgerSelfOrderKiosk();    
-    TranslatorManager translator = new TranslatorManager();
-    
+     
         public void clearScreen(){
-            setTitle(null);
-            setImage(null);
-            setDescription(null);
+            this.setTitle((String)null);
+            this.setImage((String)null);
+            this.setDescription((String)null);
        
         for (char cont = 'A'; cont <= 'H'; cont++)
-            setOption(cont, null);
+            this.setOption(cont, (String)null);
         }
         
         //metodo que espera a que el usuario pulse un boton, si pasado un minuto no lo pulsa
@@ -66,6 +65,11 @@ public class SimpleKiosk {
             kiosk.retainCreditCard(retain);
         }
         
+        public TranslatorManager getTranslatorManager(){
+            TranslatorManager TranslatorManager = new TranslatorManager(); 
+            return TranslatorManager;
+        }
+        
         public void expelCreditCard(int card){
             kiosk.expelCreditCard(card);
         }
@@ -81,10 +85,8 @@ public class SimpleKiosk {
         }
         
        
-        public SimpleKiosk(){
-            SimpleKiosk SimpleKiosk = new SimpleKiosk();
+        public SimpleKiosk(){//Constructor
         }
 
-    
- 
+        
 }//End. 
