@@ -10,53 +10,83 @@ import java.util.*;
  * @author Usuario
  */
 public class SimpleKiosk {
-    final private BurgerSelfOrderKiosk kiosk;
-    final private TranslatorManager translatorManager;
     
+    private final BurgerSelfOrderKiosk kiosk;    
+    TranslatorManager translator;
+           
     public SimpleKiosk(TranslatorManager translatorManager){
-        this.kiosk = new BurgerSelfOrderKiosk();
-        this.translatorManager = translatorManager;
+        this.kiosk = new BurgerSelfOrderKiosk();     
+        this.translator = translatorManager;
     }
-    public void setOption (char option, String message){
-        String translatedMessage = translatorManager.translate(message);
-        this.kiosk.setOption(option,translatedMessage);
+
+    public void clearScreen(){
+        this.setTitle((String)null);
+        this.setImage((String)null);
+        this.setDescription((String)null);
+
+    for (char cont = 'A'; cont <= 'H'; cont++)
+        this.setOption(cont, (String)null);
     }
-    public void setTitle (String stringTitle){
-        String translatedTitle = translatorManager.translate(stringTitle);
-        this.kiosk.setTitle(translatedTitle);
+
+    //metodo que espera a que el usuario pulse un boton, si pasado un minuto no lo pulsa
+    //el programa vuelve a wellcomeScreen 
+    public char waitPressButton(){  
+        return kiosk.waitEvent(60);
     }
-    public void setDescription (String stringDescription){
-        String translatedDescription = translatorManager.translate(stringDescription);
-        kiosk.setDescription(translatedDescription);
+
+
+    public char waitToInCard(){
+        return kiosk.waitEvent(60);
     }
-    public void setMenuMode (){
+
+
+    public void setOption(char character, String option){
+        kiosk.setOption(character, option);
+    }
+
+    public void setTitle(String title){
+        kiosk.setTitle(title);
+    }
+
+    public void setDescription(String description){
+        kiosk.setDescription(description);
+    }
+
+    public void setMenuMode(){//muestra una pantalla grande para poner un mensaje en grande (a, en enunciado)
         kiosk.setMenuMode();
-    }   
-    public char waitEvent (int seconds){
-        return kiosk.waitEvent(seconds);
-    }    
-    public void print (String stringToPrint){
-        String translatedString = translatorManager.translate(stringToPrint);
-        List<String> translatedList = new ArrayList<>();
-        translatedList.add(translatedString);
-        this.kiosk.print(translatedList);     
     }
-    public void retainCard (boolean bool){
-        this.kiosk.retainCreditCard(bool);
+
+    public void setMessageMode(){ //muestra una pantalla grande para poner un mensaje en grande (b, en enunciado) 
+        kiosk.setMessageMode();
     }
-    public void expelCreditCard (int integer){
-        this.kiosk.expelCreditCard(integer);
+
+
+    public void print(List<String> print){
+       kiosk.print(print);
     }
-//    public void clearScreen (){
-//        this.kiosk.clearScreen();
-//    }
-    public void setImage (String stringImage){
-        this.kiosk.setImage(stringImage);
+
+    public void retainCreditCard(boolean retain){
+        kiosk.retainCreditCard(retain);
     }
-    public long getCardNumber (){
-        return this.kiosk.getCardNumber();
+
+    public TranslatorManager getTranslatorManager(){
+        TranslatorManager TranslatorManager = new TranslatorManager(); 
+        return TranslatorManager;
     }
-    public void setMessageMode(){
-        this.kiosk.setMessageMode();
+
+    public void expelCreditCard(int card){
+        kiosk.expelCreditCard(card);
     }
-}
+
+
+    public void setImage(String imageFilePath){
+        kiosk.setImage(imageFilePath);
+    }
+
+    public long getCardNumber(){
+        kiosk.getCardNumber();
+    return 0;
+    }
+ 
+}//End. 
+

@@ -4,42 +4,72 @@
  */
 package screens;
 
-import context.Context;
-import utils.SimpleKiosk;
+import java.util.List;
+import manager.SimpleKiosk;
+import manager.KioskScreen;
+import sienens.BurgerSelfOrderKiosk;
+import manager.Context;
+import manager.TranslatorManager;
+import products.Product;
 
+/**
+ *
+ * @author victor
+ */
 public class OrderScreen implements KioskScreen {
+
     @Override
     public KioskScreen show(Context context) {
-        SimpleKiosk kiosk = context.getKiosk();
-        kiosk.clearScreen();
-        kiosk.setTitle("Gestión de pedidos");
-        kiosk.setOption('A', "Añadir producto individual");
-        kiosk.setOption('B', "Añadir menú");
-        kiosk.setOption('C', "Finalizar pedido");
-        kiosk.setOption('D', "Cancelar pedido");
+        configureScreenButtons(context); // Configura los botones en la pantalla
 
-        char event = kiosk.waitEvent(30);
-        return (KioskScreen) (switch (event) {
-            case 'A' -> new SectionScreen() {
-                @Override
-                public KioskScreen show(Context context) {
-                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                }
-            };
-            case 'B' -> new MenuScreen() {
-            @Override
-            public KioskScreen show(Context context) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        };
-            case 'C' -> new PurchaseScreen() {
-            @Override
-            public KioskScreen show(Context context) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-        };
-            case 'D' -> null;
-            default -> this;
-        }); // Cancela el pedido
+        SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el quiosco
+
+        // Espera la pulsación de un botón
+        char event = kiosk.waitPressButton();
+
+        KioskScreen nextScreen = this;
+
+        if (event == 'A') {
+            //Añadir producto
+            nextScreen = (KioskScreen) new ProductScreen(1,this.);
+        } else if (event == 'B') {
+            // Añadir menu
+            nextScreen = (KioskScreen) new MenuScreen();
+        } else if (event == 'C'){// Eliminar producto
+            deleteProduct(kiosk);
+            
+        }else if (event == 'D'){//vamos a pantalla de pago
+            nextScreen = new PurshaseScreen();
+            
+        }else if (event == 'E'){//cancelar 
+            nextScreen = new WellcomeScreen();
+        }
+        return nextScreen;
+    }
+
+    private void configureScreenButtons(Context context) {
+        TranslatorManager manager = context.getTranslator();
+        SimpleKiosk kiosk = context.getKiosk();
+
+        kiosk.clearScreen();
+        kiosk.setMenuMode();
+        kiosk.setImage("Pedido.png");
+        kiosk.setTitle(manager.translate("Pedido"));
+        kiosk.setDescription("");
+
+        kiosk.setOption('A', manager.translate("Añadir producto individual a pedido"));
+        kiosk.setOption('B', manager.translate("Añadir menú al pedido"));
+        kiosk.setOption('C', manager.translate("Eliminar producto"));
+        kiosk.setOption('D', manager.translate("Finalizar pedido"));
+        kiosk.setOption('E', manager.translate("Cancelar"));
+    }
+
+    private void deleteProduct(SimpleKiosk kiosk) {
+       
     }
 }
+            
+
+         
+
+

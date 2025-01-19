@@ -9,7 +9,31 @@ package products;
  * @author Usuario
  */
 public class IndividualProduct {
-    public IndividualProduct (String name, String descr, String fileName, int precio){
-        
+    
+    private String name;
+    private String description;
+    private String imageFileName;
+    private int price;
+    
+    public IndividualProduct (String name, String description, String imageFileName, int price){
+        this.name = name;
+        this.description = description;
+        this.imageFileName = imageFileName;
+        this.price = price;
+    }
+    public int getPrice(){
+        return this.price;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getDescription(){
+        return this.description;
+    }
+    
+    public String getImageFileName(){
+        return this.imageFileName;
     }
 }
